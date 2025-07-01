@@ -40,6 +40,7 @@ jobs:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           set -ex
-          npm install -g railway
-          railway up --service=shop-api-actions
+          npm install @railway/cli
+          npx railway up --service=shop-api-actions
+
 
