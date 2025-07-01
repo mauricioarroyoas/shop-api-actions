@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# TypeScript build output
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# dotenv environment variables
+.env
+
+# IDE and editor folders/files
+.vscode/
+.idea/
+
+# Mac system files
+.DS_Store
+
+# OS generated files
+Thumbs.db
+
+# NPM package lock file
+# package-lock.json
+
+# TypeScript specific files
+*.tsbuildinfo
+
+# Testing and coverage
+coverage/

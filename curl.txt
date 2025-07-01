@@ -1,0 +1,10 @@
+curl -X POST http://localhost:3000/products \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Coffee Mug",
+    "price": 12.99,
+    "description": "A cool mug for your coffee."
+  }'
+
+
+curl http://localhost:3000/products
