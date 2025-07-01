@@ -11,32 +11,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # Step 4: Run tests
       - name: Run tests
         run: npm test
 
+      # Step 5: Build project
       - name: Build project
         run: npm run build
 
+      # Step 6: Upload build artifact
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: shop-api-build
           path: dist/
 
+      # Step 7: Deploy to Railway
       - name: Deploy to Railway
         run: |
           npm install -g @railway/cli
-          railway up --service shop-api-actions -- --yes
+          railway up --yes --service shop-api-actions
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
