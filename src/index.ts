@@ -10,9 +10,6 @@ console.log("PGPASSWORD:", process.env.PGPASSWORD ? "****" : undefined);
 console.log("PGDATABASE:", process.env.PGDATABASE);
 
 
-
-
-
 const PORT = 3000;
 AppDataSource.initialize()
   .then(() => {
