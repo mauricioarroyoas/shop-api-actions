@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -40,8 +40,10 @@ jobs:
           name: shop-api-build
           path: dist/
 
-      #  Step 7: Deploy to Railway
+      # Step 7: Deploy to Railway with correct CLI
       - name: Deploy to Railway
-        run: npx railway up --yes
+        run: |
+          npm install -g @railway/cli
+          railway up --yes
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
