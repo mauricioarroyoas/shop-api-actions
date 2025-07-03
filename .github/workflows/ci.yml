@@ -34,9 +34,6 @@ jobs:
           name: shop-api-build
           path: dist/
 
-      - name: Debug Docker username
-        run: echo "Docker username is ${{ secrets.DOCKER_USERNAME }}"
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -48,9 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/shop-api-actions:latest
-            ${{ secrets.DOCKER_USERNAME }}/shop-api-actions:${{ github.run_number }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/shop-api-actions:latest,${{ secrets.DOCKER_USERNAME }}/shop-api-actions:${{ github.run_number }}
 
       - name: Deploy to Railway
         if: github.ref == 'refs/heads/main'
